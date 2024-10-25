@@ -35,7 +35,7 @@ async function bootstrap() {
     new ResolvePromisesInterceptor(),
     new ClassSerializerInterceptor(app.get(Reflector)),
   );
-
+  
   const options = new DocumentBuilder()
     .setTitle('API')
     .setDescription('API docs')
@@ -45,7 +45,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('docs', app, document);
-
-  await app.listen(configService.getOrThrow('app.port', { infer: true }));
+  // test
+  await app.listen(3000);
 }
 void bootstrap();
